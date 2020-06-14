@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" onsubmit="return validateForm()" name = "myForm" method="post">
+        <div class = "form-group">
+            <input autocomplete = "off" class = "form-control" name = "name" placeholder = "Name" type = "text">
+        </div>
+        <div class = "form-group">
+            <select  class = "form-control" name = "house">
+                <option value = "House"  selected disabled>House</option>
+                <option value = "Gryffindor">Gryffindor</option>
+                <option value = "Huffelpuff">Huffelpuff</option>
+                <option value = "Ravenclaw">Ravenclaw</option>
+                <option value = "Slytherin">Slytherin</option>
+            </select>
+        </div>
+        <div class = "form-group">
+            <div class = "form-check">
+                <input type = "radio" class = "form-check-input" name = "position" value = Beater>
+                <label class = "form-check-label">
+                    Beater
+                </label>
+            </div>
+            <div class = "form-check">
+                <input type = "radio" class = "form-check-input" name = "position" value = "Chaser">
+                <label class = "form-check-label">
+                    Chaser
+                </label>
+            </div>
+            <div class = "form-check">
+                <input type = "radio" class = "form-check-input" name = "position" value ="Keeper">
+                <label class = "form-check-label">
+                    Keeper
+                </label>
+            </div>
+            <div class = "form-check">
+                <input type = "radio" class = "form-check-input" name = "position" value = "Seeker">
+                <label  class = "form-check-label">
+                    Seeker
+                </label>
+            </div>
+        </div>
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+
+    <script>
+
+        /* TODO */
+
+        function validateForm()
+        {
+            var name = document.forms["myForm"]["name"].value;
+            if (name == "")
+            {
+                alert("Name must be filled out");
+                return false;
+            }
+
+            var house = document.forms["myForm"]["house"].value;
+            if(house == "House")
+            {
+                alert("House must be selected");
+                return false;
+            }
+
+            var position = document.forms["myForm"]["position"].value;
+            if(position == "")
+            {
+                alert("Position must be selected");
+                return false;
+            }
+        }
+
+    </script>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{%extends "layout.html" %}
+
+
+{% block main %}
+
+
+    <h1 class = "mb-3">Sheet</h1>
+
+    <div>
+        <table  id = "example" class = "table">
+            <thead>
+                <th>Name</th>
+                <th>House</th>
+                <th>Position</th>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+
+        $('table')['DataTable']({'info':![],'ordering':!![],'paging':![],'searching':![]});
+
+    </script>
+
+
+{% endblock %}
